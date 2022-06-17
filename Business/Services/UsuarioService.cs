@@ -51,10 +51,10 @@ namespace Business.Services
             return await _usuarioRepository.GetById(id);
         }
 
-        public Task Update(Usuario usuario)
+        public async Task Update(Usuario usuario)
         {
 
-            var user = _usuarioRepository.Search(u => u.Id != usuario.Id &&
+            var user = await _usuarioRepository.Search(u => u.Id != usuario.Id &&
                    u.Nome == usuario.Nome && u.Sobrenome == usuario.Sobrenome
                    && u.DataNascimento == usuario.DataNascimento);
 
@@ -63,7 +63,7 @@ namespace Business.Services
                 throw new DuplicateWaitObjectException("Já existe um usuário com os dados informados");
             }
 
-            return _usuarioRepository.Update(usuario);
+            await _usuarioRepository.Update(usuario);
         }
 
 

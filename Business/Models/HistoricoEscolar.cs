@@ -12,7 +12,7 @@ namespace Business.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage = "Informe o Formato"), StringLength(20)]
+        [Required(ErrorMessage = "Informe o Formato"), StringLength(30)]
         public string Formato { get; set; }
 
         [Required(ErrorMessage = "Informe o Nome do Historico"), StringLength(100)]
